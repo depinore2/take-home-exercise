@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        function loadScript(src) {
+            var script = document.createElement('script');
+            script.src = src
+
+            document.head.appendChild(script);
+
+            return script;
+        }
+        function loadScripts(srcs) {
+            if(srcs && srcs.length) {
+                var head = srcs[0];
+                var tail = srcs.slice(1);
+
+                var scriptElement = loadScript(head);
+
+                scriptElement.onload = function() {
+                    loadScripts(tail); // waits before this script loads before continuing to load the rest of the scripts.
+                }
+            }
+        }
+        var webComponentsSupported = ('registerElement' in document
+        && 'import' in document.createElement('link')
+        && 'content' in document.createElement('template'));
+
+        var isIE = navigator.userAgent.indexOf("MSIE ") > -1 || navigator.userAgent.indexOf("Trident/") > -1;
+
+        var scriptsToLoad = [];
+
+        // load the web components shim if necessary
+        if(!webComponentsSupported)
+            scriptsToLoad.push('node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js?v=--buildnumber--');
+        
+        // figure out whether to load compatibility or modern javascript, depending on whether it's internet explorer or not.
+        if(isIE) {
+            scriptsToLoad.push('node_modules/es6-promise/dist/es6-promise.min.js');
+            scriptsToLoad.push('node_modules/whatwg-fetch/dist/fetch.umd.js');
+            scriptsToLoad.push('dist/compat_--buildnumber--.js');
+        }
+        else
+            scriptsToLoad.push('dist/--buildnumber--.js');
+
+        loadScripts(scriptsToLoad);
+    </script>
+    <script>
+        window.build_environment = window.build_environment || 'dev';
+    </script>
+</head>
+<body>
+    <depinore-app></depinore-app>
+</body>
+</html>

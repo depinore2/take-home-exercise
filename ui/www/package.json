@@ -1,0 +1,54 @@
+{
+  "name": "web-components-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/depinore/web-components-starter.git"
+  },
+  "keywords": [],
+  "author": "Edgardo Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/depinore/web-components-starter/issues"
+  },
+  "homepage": "https://github.com/depinore/web-components-starter#readme",
+  "devDependencies": {
+    "browserify": "16.2.3",
+    "concurrently": "4.1.0",
+    "http-server": "0.11.1",
+    "typescript": "3.2.2",
+    "uglify-es": "3.3.9",
+    "watchify": "3.11.0"
+  },
+  "dependencies": {
+    "@depinore/wclibrary": "github:depinore/wclibrary",
+    "@prepair/routie": "1.0.3",
+    "@webcomponents/webcomponentsjs": "2.2.1",
+    "dompurify": "1.0.8",
+    "es6-promise": "4.2.5",
+    "express": "^4.16.4",
+    "whatwg-fetch": "3.0.0"
+  },
+  "tsReferences": [
+    {
+      "packageJson": "node_modules/@depinore/wclibrary/package.json",
+      "from": "node_modules/@depinore/wclibrary/src",
+      "to": "@depinore/wclibrary"
+    },
+    {
+      "packageJson": "../core/package.json",
+      "from": "../core/src",
+      "to": "core"
+    }
+  ],
+  "prodassets": [
+    "*.html",
+    "node_modules",
+    "ts_modules",
+    "dist",
+    "img"
+  ]
+}

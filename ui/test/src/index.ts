@@ -1,0 +1,1 @@
+export const message = `Hi world, I guess...`
