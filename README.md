@@ -38,6 +38,7 @@ Please read the API documentation to understand how to query Metaweather.
 * The backend has CORS configuration that allows 8080 to communicate with it.  
   * For more information on CORS in ASP.NET Core, [here are the official docs](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2).
   * To check if CORS is working, check the browser console after the app starts.
+* It is likely that you will end up getting weather information for the same city multiple times.  Consider caching the results to improve the performance.
 
 ## Documentation
 * Please provide a flow chart describing the flow of data from the UI to the service layer to the various APIs that you're interfacing with.  Update the backend/README.md file with either an image or URL of your flowchart.
