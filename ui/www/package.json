@@ -21,7 +21,7 @@
     "http-server": "0.11.1",
     "typescript": "3.2.2",
     "uglify-es": "3.3.9",
-    "watchify": "3.11.0"
+    "watchify": "^3.11.1"
   },
   "dependencies": {
     "@depinore/wclibrary": "github:depinore/wclibrary",
